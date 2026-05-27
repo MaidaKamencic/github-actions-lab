@@ -1,5 +1,3 @@
-var = = 5; // namjerna sintaksna greška
-
 function add(a, b) {
   return a + b;
 }
