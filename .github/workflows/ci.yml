@@ -43,3 +43,22 @@ jobs:
 
       - name: Pokreni testove
         run: npm test
+
+  build:
+    name: Build aplikacije
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Postavi Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Instaliraj zavisnosti
+        run: npm ci
+
+      - name: Pokreni build
+        run: npm run build
